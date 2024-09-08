@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sorular</h1>
+
+        <div class="panel">
+            <button onclick="yönetimPaneliGöster()">Yönetim Paneli</button>
+            <button onclick="yarışmaPaneliGöster()">Yarışmaya Başla</button>
+        </div>
+
+        <div id="adminPanel" class="panel-section">
+            <h2>Yönetim Paneli</h2>
+            <div class="question-form">
+                <input type="text" id="questionInput" placeholder="Soru ekle...">
+                <input type="text" id="option1" placeholder="Şık 1...">
+                <input type="text" id="option2" placeholder="Şık 2...">
+                <input type="text" id="option3" placeholder="Şık 3...">
+                <input type="text" id="option4" placeholder="Şık 4...">
+                <input type="text" id="correctOption" placeholder="Doğru şık (1-4)...">
+                <select id="difficultySelect">
+                    <option value="easy">Kolay</option>
+                    <option value="medium">Orta</option>
+                    <option value="hard">Zor</option>
+                </select>
+                <button onclick="soruEkle()">Soru Ekle</button>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Soru ara..." onkeyup="searchQuestion()">
+            </div>
+
+            <ul id="questionList"></ul>
+        </div>
+
+        <div id="quizPanel" class="panel-section hidden">
+            <h2>Yarışma</h2>
+            <select id="difficultySelectQuiz">
+                <option value="all">Tüm Zorluklar</option>
+                <option value="easy">Kolay</option>
+                <option value="medium">Orta</option>
+                <option value="hard">Zor</option>
+            </select>
+            <button onclick="startQuiz()">Başla</button>
+            <div id="quiz"></div>
+            <p id="score">Puan: 0</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
