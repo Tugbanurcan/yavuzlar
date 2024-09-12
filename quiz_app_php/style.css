@@ -1,0 +1,30 @@
+.container {
+    background: rgb(251, 228, 206);
+    text-align: center;
+    border-radius: 30px;
+    padding: 50px;  
+}
+
+body {
+    display: flex;
+    background-color: rgb(78, 193, 246);
+    justify-content: center;
+    align-items: flex-start; /* Yukarıdan hizalamak için */
+    min-height: 100vh;  
+    overflow-y: auto; /* İçerik taşarsa kaydırma çubuğu ekler */
+}
+
+.large-button {
+    padding: 15px 30px;  
+    font-size: 18px; 
+    background-color: #4b94e1;  
+    color: white;  
+    border: none; 
+    border-radius: 5px;  
+    cursor: pointer;  
+    transition: background-color 0.3s;  
+}
+
+.large-button:hover {
+    background-color: #041c37;  
+}
